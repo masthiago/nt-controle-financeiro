@@ -1,3 +1,24 @@
-* {
-    font-family: 'Lato', sans-serif;
+/*
+**
+**
+** ** 
+**
+**
+**/
+
+:root {
+    --fnt-family-default: 'Lato', sans-serif;
+    --fnt-size-default: 16px;
+    --clr-gray-1: #E0E0E0;
+    --clr-gray-2: #C4C4C4;
+    --clr-gray-3: #979797;
+    --clr-gray-4: #888888;
+    --clr-gray-5: #333333;
+    --clr-white: #FFFFFF;
+    --clr-white: #000000;
+}
+
+body {
+    font-family: var(--fnt-family-default);
+    font-size: var(--fnt-size-default);
 }

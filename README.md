@@ -4,7 +4,7 @@ Projeto Individual obrigatório para conclusão do Módulo 1 da Newtab Academy.
 
 ## Proposta
 
-Silumar na prática um teste técnico. Inspirado no teste técnico da [Via Varejo](https://github.com/viavarejo/frontend-test).
+Simular um teste técnico front-end. Inspirado no teste técnico da [Via Varejo](https://github.com/viavarejo/frontend-test).
 
 ## Material
 

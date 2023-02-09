@@ -9,14 +9,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Thiago Medeiros">
+    <meta name="description" content="Projeto individual para o módulo 1 da imersão dev da Newtab Academy">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Newtab, Project">
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    
+    <header>
+        <img src="assets/img/logo.png" alt="">
+        <h1>Controle financeiro</h1>
+        <img src="assets/img/menu.png" alt="">
+        <nav>
+            <ul>
+                <li><a href="">Dashboard</a></li>
+                <li><a href="">Resumo</a></li>
+                <li><a href="">Configurações</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Nova transação</h2>
+            <label for="">Tipo de transação</label>
+            <select name="" id="">
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            <label for="">Nome da mercadoria</label><input type="text">
+            <label for="">Valor</label><input type="text">
+            <button type="submit">Adicionar transação</button>
+        </section>
+        <section>
+            <h2>Extrato de transações</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Mercadoria</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+</td>
+                        <td>Lorem ipsum dolor sit amet consectetur</td>
+                        <td>R$ 12.999,99</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Quis nostrud exercitation</td>
+                        <td>R$ 99,99</td>
+                    </tr>
+                    <tr>
+                        <td>+</td>
+                        <td>Lorem ipsum </td>
+                        <td>R$ 9,99</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td>Total</td>
+                        <td>R$ 12.909,99<span>[LUCRO]</span></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </main>
+    <footer></footer>
+    <aside>
+        <img src="assets/img/close.png" alt="">
+        <ul>
+            <li><a href="">Dashboard</a></li>
+            <li><a href="">Resumo</a></li>
+            <li><a href="">Configurações</a></li>
+        </ul>
+    </aside>
     <script src="assets/js/app.js"></script>
 </body>
 </html>
