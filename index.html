@@ -13,32 +13,33 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, Newtab, Project">
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <header>
-        <img src="assets/img/logo.png" alt="">
-        <h1>Controle financeiro</h1>
-        <img src="assets/img/menu.png" alt="">
-        <nav>
-            <ul>
-                <li><a href="">Dashboard</a></li>
-                <li><a href="">Resumo</a></li>
-                <li><a href="">Configurações</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <section class="container">    
+            <img src="assets/img/logo.png" alt="" class="logo">
+            <h1 class="header__title">Controle financeiro</h1>
+            <img src="assets/img/menu.png" alt="" class="menu-icon">
+            <nav class="menu">
+                <ul>
+                    <li><a href="">Dashboard</a></li>
+                    <li><a href="">Resumo</a></li>
+                    <li><a href="">Configurações</a></li>
+                </ul>
+            </nav>
+        </section>
     </header>
-    <main>
-        <section>
-            <h2>Nova transação</h2>
+    <main class="main">
+        <section class="transaction">
+            <h2 class="transaction__title">Nova transação</h2>
             <label for="">Tipo de transação</label>
             <select name="" id="">
-                <option value=""></option>
-                <option value=""></option>
+                <option value="">Compra</option>
+                <option value="">Venda</option>
             </select>
-            <label for="">Nome da mercadoria</label><input type="text">
-            <label for="">Valor</label><input type="text">
+            <label for="">Nome da mercadoria</label><input type="text" placeholder="Input">
+            <label for="">Valor</label><input type="text" placeholder="R$ 0,00">
             <button type="submit">Adicionar transação</button>
         </section>
         <section>
@@ -78,8 +79,8 @@
             </table>
         </section>
     </main>
-    <footer></footer>
-    <aside>
+    <footer class="footer"></footer>
+    <aside class="aside">
         <img src="assets/img/close.png" alt="">
         <ul>
             <li><a href="">Dashboard</a></li>
@@ -87,6 +88,6 @@
             <li><a href="">Configurações</a></li>
         </ul>
     </aside>
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

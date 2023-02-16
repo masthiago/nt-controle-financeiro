@@ -1,0 +1,41 @@
+.main {
+    padding: 18px;
+}
+
+.main .transaction {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 28px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--clr-gray-4);
+}
+
+.transaction input,
+.transaction input::placeholder,
+.transaction select {
+    background-color: transparent;
+    border: 1px solid var(--clr-gray-4);
+    border-radius: 4px;
+    color: var(--clr-gray-4);
+    font-size: 14px;
+    margin-bottom: 16px;
+    padding: 8px;
+}
+
+.transaction label {
+    font-size: 14px;
+}
+
+.transaction button {
+    border: none;
+    border-radius: 4px;
+    background-color: var(--clr-black);
+    color: var(--clr-white);
+    padding: 8px;
+    font-size: 14px;
+}
+
+.transaction__title {
+    display: none;
+}

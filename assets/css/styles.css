@@ -1,10 +1,12 @@
-/*
-**
-**
-** ** 
-**
-**
-**/
+@import url(reset.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+@import url(header.css);
+@import url(main.css);
+@import url(footer.css);
+@import url(menu.css);
+
 
 :root {
     --fnt-family-default: 'Lato', sans-serif;
@@ -15,10 +17,27 @@
     --clr-gray-4: #888888;
     --clr-gray-5: #333333;
     --clr-white: #FFFFFF;
-    --clr-white: #000000;
+    --clr-black: #000000;
+}
+
+* {
+    font-family: var(--fnt-family-default);
+    font-size: var(--fnt-size-default);
+    font-weight: 400;
 }
 
 body {
+    background-color: var(--clr-white);
     font-family: var(--fnt-family-default);
     font-size: var(--fnt-size-default);
+    font-weight: 400;
 }
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+
+

@@ -1,0 +1,18 @@
+.header {
+    background-color: var(--clr-gray-1);
+    box-sizing: border-box;
+    width: 100vw;
+}
+
+.header .container {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+    width: 100%;
+}
+
+.header__title {
+    font-size: 20px;
+}
