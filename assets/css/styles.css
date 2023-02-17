@@ -1,40 +1,39 @@
 @import url(reset.css);
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 
 @import url(header.css);
 @import url(main.css);
 @import url(footer.css);
 @import url(menu.css);
 
-
 :root {
-    --fnt-family-default: 'Lato', sans-serif;
-    --fnt-size-default: 16px;
-    --clr-gray-1: #E0E0E0;
-    --clr-gray-2: #C4C4C4;
-    --clr-gray-3: #979797;
-    --clr-gray-4: #888888;
-    --clr-gray-5: #333333;
-    --clr-white: #FFFFFF;
-    --clr-black: #000000;
+  --fnt-family-default: "Lato", sans-serif;
+  --fnt-size-default: 16px;
+  --clr-gray-1: #e0e0e0;
+  --clr-gray-2: #c4c4c4;
+  --clr-gray-3: #979797;
+  --clr-gray-4: #888888;
+  --clr-gray-5: #333333;
+  --clr-white: #ffffff;
+  --clr-black: #000000;
 }
 
 * {
-    font-family: var(--fnt-family-default);
-    font-size: var(--fnt-size-default);
-    font-weight: 400;
+  font-family: var(--fnt-family-default);
+  font-size: var(--fnt-size-default);
+  font-weight: 400;
 }
 
 body {
-    background-color: var(--clr-white);
-    font-family: var(--fnt-family-default);
-    font-size: var(--fnt-size-default);
-    font-weight: 400;
+  background-color: var(--clr-white);
+  font-family: var(--fnt-family-default);
+  font-size: var(--fnt-size-default);
+  font-weight: 400;
 }
 
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    box-sizing: border-box;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
