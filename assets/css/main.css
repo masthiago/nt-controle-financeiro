@@ -12,7 +12,6 @@
 }
 
 .transaction input,
-.transaction input::placeholder,
 .transaction select {
     background-color: transparent;
     border: 1px solid var(--clr-gray-4);
@@ -39,3 +38,4 @@
 .transaction__title {
     display: none;
 }
+
