@@ -38,3 +38,70 @@
 .transaction__title {
   display: none;
 }
+
+.transaction-statement__title {
+  font-weight: 700;
+  font-size: 18px;
+  padding: 16px;
+  text-align: center;
+}
+
+/* 
+ * Table
+ * I chose not to use classes inside the table to practice using nth-child pseudo-class.
+ */
+
+.transaction-statement__table {
+  width: 100%;
+}
+
+/* Bold in columns and footer. */
+.transaction-statement__table th,
+.transaction-statement__table tfoot td {
+  font-weight: 700;
+}
+
+/* Basic padding on cells. */
+.transaction-statement__table th,
+.transaction-statement__table td {
+  padding: 10px 5px;
+}
+
+/* Column heading Mercadoria aligned left. */
+.transaction-statement__table th:nth-child(2) {
+  text-align: left;
+}
+
+/* Addition and subtraction symbols in the center. */
+.transaction-statement__table tbody tr td:nth-child(1) {
+  text-align: center;
+}
+
+/* Lines below transaction cells. */
+.transaction-statement__table tbody tr,
+.transaction-statement__table thead tr {
+  border-bottom: 1px solid var(--clr-gray-4);
+}
+
+/* Forcing the value column min size (the right one) */
+.transaction-statement__table tbody th td:nth-child(3),
+.transaction-statement__table tbody tr td:nth-child(3),
+.transaction-statement__table tfoot tr td:nth-child(3) {
+  text-align: right;
+  min-width: 110px;
+}
+
+/* Double border before total. */
+.transaction-statement__table tfoot {
+  border-top: 3px double var(--clr-black);
+}
+
+/* Spacing above total. */
+.transaction-statement__table tfoot td {
+  padding-top: 16px;
+}
+
+.result {
+  display: block;
+  font-weight: 400;
+}

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <title>Controle Financeiro</title>
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="Content-Language" content="pt-BR">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <meta name="author" content="Thiago Medeiros">
     <meta name="description" content="Projeto individual para o módulo 1 da imersão dev da Newtab Academy">
     <meta name="keywords" content="HTML, CSS, JavaScript, Newtab, Project">
@@ -15,9 +16,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
     <header class="header">
-        <section class="container">    
+        <section class="container">
             <img src="assets/img/logo.png" alt="" class="logo">
             <h1 class="header__title">Controle financeiro</h1>
             <img src="assets/img/menu.png" alt="" class="menu-icon">
@@ -42,9 +44,9 @@
             <label for="">Valor</label><input type="text" placeholder="R$ 0,00">
             <button type="submit">Adicionar transação</button>
         </section>
-        <section>
-            <h2>Extrato de transações</h2>
-            <table>
+        <section class="transaction-statement">
+            <h2 class="transaction-statement__title">Extrato de transações</h2>
+            <table class="transaction-statement__table">
                 <thead>
                     <tr>
                         <th></th>
@@ -73,7 +75,7 @@
                     <tr>
                         <td></td>
                         <td>Total</td>
-                        <td>R$ 12.909,99<span>[LUCRO]</span></td>
+                        <td>R$ 12.909,99<span class="result">[LUCRO]</span></td>
                     </tr>
                 </tfoot>
             </table>
@@ -90,4 +92,5 @@
     </aside>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
