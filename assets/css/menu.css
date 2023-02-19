@@ -1,4 +1,40 @@
-.menu,
-.aside {
-  display: none;
+.menu {
+  background:var(--clr-gray-5);
+  bottom: 0;
+  min-width: 200px;
+  position: fixed;
+  right: -300px;
+  top: 0;
+  transition: all 0.4s ease-in-out;  /* Sliding animation */
+  width: 300px;
+  z-index: 999;
+}
+
+/* Display the menu */
+.menu.open {
+  right: 0;
+}
+
+.menu li a, .menu li a:active, .menu li a:visited {
+  background-color: transparent;
+  color: var(--clr-white);
+  display: block;
+  font-weight: 600;
+  text-align: right;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.menu li a:hover, .menu li a:focus {
+  background-color: var(--clr-gray-2);
+  color: var(--clr-gray-5);
+}
+
+.menu-icon {
+  display: inline-block;
+}
+
+.close-menu {
+  display: inline-block;
+  padding: 20px;
 }
