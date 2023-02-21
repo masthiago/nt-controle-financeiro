@@ -8,15 +8,15 @@
 @import url(footer.css);
 
 :root {
-  --fnt-family-default: "Lato", sans-serif;
-  --fnt-size-default: 16px;
+  --clr-black: #000000;
   --clr-gray-1: #e0e0e0;
   --clr-gray-2: #c4c4c4;
   --clr-gray-3: #979797;
   --clr-gray-4: #888888;
   --clr-gray-5: #333333;
   --clr-white: #ffffff;
-  --clr-black: #000000;
+  --fnt-family-default: "Lato", sans-serif;
+  --fnt-size-default: 16px;
 }
 
 * {

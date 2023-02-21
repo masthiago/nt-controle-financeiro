@@ -6,8 +6,8 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-bottom: 28px;
   margin-bottom: 20px;
+  padding-bottom: 28px;
   border-bottom: 1px solid var(--clr-gray-4);
 }
 
@@ -31,12 +31,23 @@
   border-radius: 4px;
   background-color: var(--clr-black);
   color: var(--clr-white);
-  padding: 8px;
   font-size: 14px;
+  padding: 8px;
 }
 
 .transaction__title {
   display: none;
+}
+
+.transaction__inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction__inputs div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
 }
 
 .transaction-statement__title {
@@ -87,8 +98,8 @@
 .transaction-statement__table tbody th td:nth-child(3),
 .transaction-statement__table tbody tr td:nth-child(3),
 .transaction-statement__table tfoot tr td:nth-child(3) {
-  text-align: right;
   min-width: 110px;
+  text-align: right;
 }
 
 /* Double border before total. */
@@ -104,4 +115,37 @@
 .result {
   display: block;
   font-weight: 400;
+}
+
+/*
+ * Tablet portrait
+ */
+@media screen and (min-width: 768px) {
+  .main .transaction {
+    border: 1px solid var(--clr-gray-4);
+    border-radius: 5px;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .transaction__title {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .transaction__inputs {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  .transaction button {
+    align-self: end;
+    width: 200px;
+  }
 }

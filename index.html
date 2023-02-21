@@ -37,13 +37,21 @@
     <main class="main container">
         <section class="transaction">
             <h2 class="transaction__title">Nova transação</h2>
-            <label for="">Tipo de transação</label>
-            <select name="" id="">
-                <option value="">Compra</option>
-                <option value="">Venda</option>
-            </select>
-            <label for="">Nome da mercadoria</label><input type="text" placeholder="Input">
-            <label for="">Valor</label><input type="text" placeholder="R$ 0,00">
+            <div class="transaction__inputs">
+                <div>
+                    <label for="">Tipo de transação</label>
+                    <select name="" id="">
+                        <option value="">Compra</option>
+                        <option value="">Venda</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">Nome da mercadoria</label><input type="text" placeholder="Input">
+                </div>
+                <div>
+                    <label for="">Valor</label><input type="text" placeholder="R$ 0,00">
+                </div>
+            </div>
             <button type="submit">Adicionar transação</button>
         </section>
         <section class="transaction-statement">

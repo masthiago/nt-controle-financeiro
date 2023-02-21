@@ -1,7 +1,6 @@
 .menu {
   background:var(--clr-gray-5);
   bottom: 0;
-  min-width: 200px;
   position: fixed;
   right: -300px;
   top: 0;
@@ -38,3 +37,14 @@
   display: inline-block;
   padding: 20px;
 }
+
+
+/*
+ * Tablet portrait
+ */
+ @media screen and (min-width: 768px) {
+  .menu {
+    right: -255px;
+    width: 255px;
+  }
+ }
