@@ -16,3 +16,15 @@
 .header__title {
   font-size: 20px;
 }
+
+/*
+ * Tablet landscape and desktop
+ */
+@media screen and (min-width: 1024px) {
+
+  .header .container {
+    display: grid;
+    grid-template-columns: 50px 1fr 400px;
+  }
+  
+}

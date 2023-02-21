@@ -7,6 +7,9 @@
 @import url(main.css);
 @import url(footer.css);
 
+/* 
+ * Variables
+ */
 :root {
   --clr-black: #000000;
   --clr-gray-1: #e0e0e0;
@@ -25,6 +28,11 @@
   font-weight: 400;
 }
 
+/*
+ * Some texts were not with the correct font, even though
+ * they were placed in the * tag, but worked after
+ * adjusting on body tag.
+ */
 body {
   background-color: var(--clr-white);
   font-family: var(--fnt-family-default);

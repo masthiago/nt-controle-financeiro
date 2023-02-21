@@ -61,7 +61,6 @@
  * Table
  * I chose not to use classes inside the table to practice using nth-child pseudo-class.
  */
-
 .transaction-statement__table {
   width: 100%;
 }
@@ -132,8 +131,8 @@
 
   .transaction__title {
     display: block;
-    font-weight: 700;
     font-size: 18px;
+    font-weight: 700;
     padding: 16px;
     text-align: center;
   }
@@ -147,5 +146,27 @@
   .transaction button {
     align-self: end;
     width: 200px;
+  }
+}
+
+/*
+ * Tablet landscape and desktop
+ */
+@media screen and (min-width: 1024px) {
+  .main {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 400px 1fr;
+  }
+
+  .transaction__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .transaction button {
+    align-self: normal;
+    width: auto;
   }
 }

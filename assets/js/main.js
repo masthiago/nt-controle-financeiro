@@ -1,3 +1,10 @@
+
+/*
+ *
+ * Menu animation
+ * 
+ */
+
 // Captures menu related elements.
 const menuBtn = document.querySelector('.menu-icon');       // Menu button
 const menu = document.querySelector('.menu');               // Menu nav tag
