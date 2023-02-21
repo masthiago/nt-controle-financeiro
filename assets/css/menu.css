@@ -69,16 +69,17 @@
 
   .menu ul {
     background-color: var(--clr-white);
-    display: flex;
-    justify-content: space-between;
     padding: 10px 0;
     width: auto;
+    text-align: center;
   }
 
   .menu ul li {
     border-left: 1px solid var(--clr-gray-3);
+    box-sizing: border-box;
+    display: inline-block;
     margin: 0;
-    padding: 2px 20px;
+    padding: 5px 20px;
     text-align: center;
   }
 
