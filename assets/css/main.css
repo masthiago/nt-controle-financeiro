@@ -94,7 +94,7 @@
 }
 
 /* Forcing the value column min size (the right one) */
-.transaction-statement__table tbody th td:nth-child(3),
+.transaction-statement__table thead tr th:nth-child(3),
 .transaction-statement__table tbody tr td:nth-child(3),
 .transaction-statement__table tfoot tr td:nth-child(3) {
   min-width: 110px;
