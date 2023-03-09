@@ -4,31 +4,31 @@
 <head>
     <title>Controle Financeiro</title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Language" content="pt-BR">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Language" content="pt-BR" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="author" content="Thiago Medeiros">
-    <meta name="description" content="Projeto individual para o módulo 1 da imersão dev da Newtab Academy">
-    <meta name="keywords" content="HTML, CSS, JavaScript, Newtab, Project">
+    <meta name="author" content="Thiago Medeiros" />
+    <meta name="description" content="Projeto individual para o módulo 1 da imersão dev da Newtab Academy" />
+    <meta name="keywords" content="HTML, CSS, JavaScript, Newtab, Project" />
 
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
     <header class="header">
         <section class="container">
-            <img src="assets/img/logo.png" alt="" class="logo">
+            <img src="assets/img/logo.png" alt="" class="logo" />
             <h1 class="header__title">Controle financeiro</h1>
             <a href="#" class="menu-icon">
-                <img src="assets/img/menu.png" alt="">
+                <img src="assets/img/menu.png" alt="" />
             </a>
             <nav class="menu">
-                <a href="#" class="close-menu"><img src="assets/img/close.png" alt="" srcset=""></a>
+                <a href="#" class="close-menu"><img src="assets/img/close.png" alt="" /></a>
                 <ul>
-                    <li><a href="">Limpar dados</a></li>
-                    <li><a href="">Cadastro de transações</a></li>
+                    <li><a href="#" id="clear">Limpar dados</a></li>
+                    <li><a href="#">Cadastro de transações</a></li>
                 </ul>
             </nav>
         </section>
@@ -38,24 +38,29 @@
             <h2 class="transaction__title">Nova transação</h2>
             <div class="transaction__inputs">
                 <div>
-                    <label for="">Tipo de transação</label>
-                    <select name="" id="">
-                        <option value="">Compra</option>
-                        <option value="">Venda</option>
+                    <label for="operation">Tipo de transação</label>
+                    <select name="operation" id="operation">
+                        <option value="-">Compra</option>
+                        <option value="+">Venda</option>
                     </select>
                 </div>
                 <div>
-                    <label for="">Nome da mercadoria</label><input type="text" placeholder="Input">
+                    <label for="product">Nome da mercadoria</label>
+                    <span id="product-error" class="error"></span>
+                    <input id="product" name="product" type="text" placeholder="Mercadoria" />
                 </div>
                 <div>
-                    <label for="">Valor</label><input type="text" placeholder="R$ 0,00">
+                    <label for="value">Valor</label>
+                    <span id="value-error" class="error"></span>
+                    <!-- ! The type attribute must be 'text', so javascript mask commas and dots are displayed -->
+                    <input id="value" name="value" type="text" placeholder="R$     0,00" style="text-align: right" />
                 </div>
             </div>
-            <button type="submit">Adicionar transação</button>
+            <button id="add">Adicionar transação</button>
         </section>
-        <section class="transaction-statement">
-            <h2 class="transaction-statement__title">Extrato de transações</h2>
-            <table class="transaction-statement__table">
+        <section class="statement">
+            <h2 class="statement__title">Extrato de transações</h2>
+            <table class="statement__table">
                 <thead>
                     <tr>
                         <th></th>
@@ -63,34 +68,30 @@
                         <th>Valor</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>+</td>
-                        <td>Lorem ipsum dolor sit amet consectetur</td>
-                        <td>R$ 12.999,99</td>
-                    </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>Quis nostrud exercitation</td>
-                        <td>R$ 99,99</td>
-                    </tr>
-                    <tr>
-                        <td>+</td>
-                        <td>Lorem ipsum </td>
-                        <td>R$ 9,99</td>
-                    </tr>
-                </tbody>
+                <tbody></tbody>
                 <tfoot>
                     <tr>
                         <td></td>
-                        <td>Total</td>
-                        <td>R$ 12.909,99<span class="result">[LUCRO]</span></td>
+                        <td></td>
+                        <td class="total">
+                            <span class="value"></span><span class="result"></span>
+                        </td>
                     </tr>
                 </tfoot>
             </table>
         </section>
     </main>
     <footer class="footer"></footer>
+    <div id="modal" class="modal">
+        <div class="modal__content">
+            <h3 class="content__title">Limpar dados<h3/>
+            <p>Todos os dados registrados serão apagados!</p>
+            <div class="content__buttons">
+                <button class="cancel">Cancelar</button>
+                <button class="confirm">Apagar</button>
+            </div>
+        </div>
+    </div>
     <script src="assets/js/main.js"></script>
 </body>
 
