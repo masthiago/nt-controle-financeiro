@@ -39,21 +39,23 @@
             <div class="transaction__inputs">
                 <div>
                     <label for="operation">Tipo de transação</label>
+                    <span id="operation-error" class="error"></span>
                     <select name="operation" id="operation">
-                        <option value="-">Compra</option>
-                        <option value="+">Venda</option>
+                        <option value=""></option>
+                        <option value="-">Compra ( - )</option>
+                        <option value="+">Venda ( + )</option>
                     </select>
                 </div>
                 <div>
                     <label for="product">Nome da mercadoria</label>
                     <span id="product-error" class="error"></span>
-                    <input id="product" name="product" type="text" placeholder="Mercadoria" />
+                    <input id="product" name="product" type="text" maxlength="64" />
                 </div>
                 <div>
                     <label for="value">Valor</label>
                     <span id="value-error" class="error"></span>
                     <!-- ! The type attribute must be 'text', so javascript mask commas and dots are displayed -->
-                    <input id="value" name="value" type="text" placeholder="R$     0,00" style="text-align: right" />
+                    <input id="value" name="value" type="text" style="text-align: right" maxlength="11" />
                 </div>
             </div>
             <button id="add">Adicionar transação</button>

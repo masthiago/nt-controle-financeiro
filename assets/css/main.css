@@ -1,3 +1,4 @@
+/* TODO: Put new color as variables */
 .main {
   padding: 18px;
 }
@@ -70,10 +71,19 @@
  * Table
  * I chose not to use classes inside the table to practice using nth-child pseudo-class.
  */
+
+ /* TODO: Change table codes to a new file */
+
 .statement__table {
   width: 100%;
 }
 
+.statement__title {
+  font-weight: 700;
+  font-size: 18px;
+  padding: 16px;
+  text-align: center;
+}
 /* Bold in columns and footer. */
 .statement__table th,
 .statement__table tfoot td {
@@ -89,6 +99,10 @@
 /* Column heading Mercadoria aligned left. */
 .statement__table th:nth-child(2) {
   text-align: left;
+}
+
+.statement__table tbody tr:nth-child(odd) {
+  background-color: #fafafa;
 }
 
 /* Addition and subtraction symbols in the center. */
@@ -123,6 +137,25 @@
 .result {
   display: block;
   font-weight: 400;
+}
+
+a.remove,
+a.remove:active, 
+a.remove:hover,
+a.remove:visited {
+  display: inline-block;
+  padding: 2px 3px;
+  margin-left: 2px;
+  background-color: #d10000;
+  color: var(--clr-white);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+a.remove:hover {
+
+  background-color: #800000;
 }
 
 /*
