@@ -81,7 +81,6 @@ const formatValue = function (num) {
   }
 
   // Return formatted value
-  console.log(formatedValue);
   return formatedValue;
 };
 
