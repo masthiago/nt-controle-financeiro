@@ -34,8 +34,7 @@ closeButton.addEventListener("click", function () {
 /**
  * Transactions related elements.
  */
-const inputOperation = document.querySelector("#operation");
-const inputProduct = document.querySelector("#product");
+
 const inputValue = document.querySelector("#value");
 const addButton = document.querySelector("#add");
 const clearButton = document.querySelector("#clear");
@@ -117,7 +116,7 @@ const clearErrors = function () {
   // Get all elements with input-error class
   let inputErrors = document.querySelectorAll(".input-error");
   inputErrors.forEach(function (element) {
-    element.classList.remove("input-error"); // Remove classes
+    element.classList.remove("input-error"); // Remove classes`
   });
 };
 
@@ -125,9 +124,10 @@ const clearErrors = function () {
  * Remove input values
  */
 const clearInputs = function () {
-  inputOperation.value = null;
-  inputProduct.value = null;
-  inputValue.value = null;
+  let inputs = document.querySelectorAll(".input-data");
+  inputs.forEach(function (input) {
+    input.value = null;
+  });
 };
 
 /**
@@ -137,44 +137,6 @@ const clearAll = function () {
   clearErrors();
   clearInputs();
   localStorage.clear();
-};
-
-/**
- * Return value in Operation Select Tag (+/-) as string
- * @returns {string}
- */
-const getOperation = function () {
-  return inputOperation.value;
-};
-
-/**
- * Returns value in Product Input Tag, removing ascents and in uppercase
- * @returns {string}
- */
-const getProduct = function () {
-  // All text in upper case and no ascents
-  let value = inputProduct.value.toUpperCase();
-  return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-};
-
-/**
- * Return value from Value Input Tag normalized as number
- * @returns {number}
- */
-const getValue = function () {
-  return stringToNumber(inputValue.value);
-};
-
-/**
- * Run tree getter functions above and structure they returns as an object
- * @returns {object}
- */
-const getAllInputValues = function () {
-  return {
-    operation: getOperation(),
-    product: getProduct(),
-    value: getValue(),
-  };
 };
 
 /**
