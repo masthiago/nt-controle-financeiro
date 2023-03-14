@@ -45,10 +45,8 @@ const confirmClearButton = document.querySelector("button.confirm");
 
 /**
  * transactionsStorage keeps localStorage an array with all individual transactions
- * resultsStorage keeps localStorage data from total sum and result of transactions
  */
 let transactionsStorage = JSON.parse(localStorage.getItem("transactions"));
-let resultsStorage = JSON.parse(localStorage.getItem("results"));
 
 /**
  * Convert a Number value in BRL formatted number as string.
@@ -108,7 +106,6 @@ const valueMask = function (inputObject) {
 
 /**
  * Remove classes and contents from itens related with error alerts.
- * @returns {undefined}
  */
 const clearErrors = function () {
   // Get all elements with error class.
@@ -120,13 +117,12 @@ const clearErrors = function () {
   // Get all elements with input-error class
   let inputErrors = document.querySelectorAll(".input-error");
   inputErrors.forEach(function (element) {
-    element.classList.remove("input-error"); // Remove classs
+    element.classList.remove("input-error"); // Remove classes
   });
 };
 
 /**
  * Remove input values
- * @returns {undefined}
  */
 const clearInputs = function () {
   inputOperation.value = null;
@@ -136,13 +132,11 @@ const clearInputs = function () {
 
 /**
  * Run all clear functions defined above and clear localStorage content.
- * @returns {undefined}
  */
 const clearAll = function () {
   clearErrors();
   clearInputs();
   localStorage.clear();
-  transactionsStorage = localStorage.getItem("transactions");
 };
 
 /**
@@ -185,93 +179,54 @@ const getAllInputValues = function () {
 
 /**
  * Check if values on inputs are OK.
- * @returns {boolean}
- */
-const validateForm = function () {
-  // Get input values
-  let form = getAllInputValues();
-  let errorMsg = "Verifique!";
-
-  // Clear errors. If necessary, they'll come back in the end.
-  clearErrors();
-
-  // If all form values are OK, return true.
-  if (form.operation && form.product && form.value) {
-    return true;
-  }
-
-  // TODO: Check how to use Generalization below.
-
-  // The code below will be executed only if the function
-  // wasn't finished by "return true" in previously condition.
-
-  // Add errors to product description area
-  if (!form.operation) {
-    let err = document.querySelector("#operation-error");
-    err.nextElementSibling.classList.add("input-error"); 
-    err.innerHTML = errorMsg;
-  }
-
-  // Add errors to product description area
-  if (!form.product) {
-    let err = document.querySelector("#product-error");
-    err.nextElementSibling.classList.add("input-error");
-    err.innerHTML = errorMsg;
-  }
-
-  // Add errors to value area
-  if (!form.value) {
-    let err = document.querySelector("#value-error");
-    err.nextElementSibling.classList.add("input-error");
-    err.innerHTML = errorMsg;
-  }
-
-  return false;
-};
-
-/**
- * Calculate total results and final situation of transactions
  * @returns {object}
  */
-const calculateResults = function () {
-  let sum = Number();
-  let result = null;
-  let results = { value: sum, result: result };
+const validateForm = function () {
 
-  // TODO: Review number evolution in this function em simplify
-  if (transactionsStorage) {
-    transactionsStorage.forEach(function (item) {
-      if (item.operation == "+") {
-        sum += Number(Number(item.value).toFixed(2));
-      } else if (item.operation == "-") {
-        sum -= Number(Number(item.value).toFixed(2));
-      }
-    });
-    if (sum === 0) {
-      result = "Equilíbrio";
-    } else if (sum >= 0) {
-      result = "Lucro";
+  let inputs = document.querySelectorAll(".input-data");  // Get all inputs
+  let ok = true;  // Switch to false if any error exists 
+  let data = {}  // Valid values
+  let errorMsg = {  // Error message by input field
+    "operation": "Escolha uma operação válida",
+    "product": "Preencha o nome da mercadoria",
+    "value": "Informe o valor da operação",
+  };
+
+  clearErrors();
+
+  // 
+  inputs.forEach(function (input) {
+    if (!input.value){
+      ok = false;
+      input.classList.add("input-error");
+      input.parentElement.querySelector(".error").innerHTML = errorMsg[input.name];
+    } else if (input.name == "value") {
+      data[input.name] = stringToNumber(input.value);
     } else {
-      result = "Prejuízo";
+      data[input.name] = input.value;
     }
-    sum = Number(Number(sum).toFixed(2));
-    results.value = sum;
-    results.result = result;
-    resultsStorage = JSON.stringify(results);
+  });
+
+  if (ok) {
+    return {"isValid": true, "data": data};
   }
 
-  return results;
+  return  {"isValid": false, "data": data};
 };
 
 /**
  * Get necessary Table Tags, localStorage values and construct
  * the transactions table and results with this data.
- * @returns {undefined}
  */
 const populateTable = function () {
   let table = document.querySelector("tbody"); // Table
   let totalSpan = document.querySelector(".value"); // Total
   let resultSpan = document.querySelector(".result"); // Result
+
+  let sum = Number();
+  let result = null;
+
+  transactionsStorage = JSON.parse(localStorage.getItem("transactions"));
 
   // If has data in localStorage
   if (transactionsStorage) {
@@ -282,22 +237,37 @@ const populateTable = function () {
 
     // Each line of transactions
     transactionsStorage.forEach(function (transaction, index) {
+      if (transaction.operation == "+") {
+        sum += Number(Number(transaction.value).toFixed(2));
+      } else if (transaction.operation == "-") {
+        sum -= Number(Number(transaction.value).toFixed(2));
+      }
       table.innerHTML += `<tr style="color: ${
         transaction.operation == "+" ? "#005700" : "#d10000"
       }"><td>
           ${transaction.operation}
         </td><td>
           ${transaction.product}
-        </td><td>
+        </td><td>R$ 
           ${formatValue(transaction.value)}
           <a href="#" id="${index}" class="remove" onclick="removeItem(${index})">&times;</a>
         </td></tr>`;
     });
 
+    // Check total to make final result
+    sum = Number(sum.toFixed(2)); 
+
+    if (sum < 0) {
+      result = "[Prejuízo]";
+    } else if (sum > 0) {
+      result = "[Lucro]";
+    } else {
+      result = "";
+    }
+
     // Apply total and final result in HTML
-    let finalNumbers = calculateResults();
-    totalSpan.innerHTML = formatValue(finalNumbers.value);
-    resultSpan.innerHTML = `[${finalNumbers.result}]`;
+    totalSpan.innerHTML = `R$ ${formatValue(sum)}`;
+    resultSpan.innerHTML = result;
   }
   // Else, without data in localStorage
   else {
@@ -312,41 +282,34 @@ const populateTable = function () {
 /**
  * Run necessary functions and actions after click in Add Button Tag to
  * save transaction in localStorage if input data is valid.
- * @returns {undefined}
  */
 const registerOperation = function () {
   // If form has valid data
-  if (validateForm()) {
-    // Get input data
-    let newTransaction = getAllInputValues();
+
+  let form = validateForm();
+
+  if (form.isValid) {
 
     // If exists transaction entry in localStorage, add this one
     if (transactionsStorage) {
-      transactionsStorage.push(newTransaction);
+      transactionsStorage.push(form.data);
       localStorage.setItem("transactions", JSON.stringify(transactionsStorage));
     } else {
       // Else, initialize transaction entry in localStorage
-      localStorage.setItem("transactions", JSON.stringify([newTransaction]));
+      localStorage.setItem("transactions", JSON.stringify([form.data]));
     }
-
-    // Update localStorage in memory variable
-    transactionsStorage = JSON.parse(localStorage.getItem("transactions"));
-
     // Clear errors and input data to receive a new one.
     clearErrors();
     clearInputs();
   }
 
-  // TODO: Check if this is the best place to call in function
   // Reconstruct the table
   populateTable();
-  calculateResults();
 };
 
 /**
  * Remove one item from transaction array, by position,
  * update localStorage and table on HTML
- * TODO: To make removeItem be called from JS, not inline.
  * @param {number, string} index
  */
 const removeItem = function (index) {
@@ -362,14 +325,10 @@ const removeItem = function (index) {
   // presentation of HTML table.
   if (transactionsStorage.length === 0) {
     localStorage.clear();
-    transactionsStorage = transactionsStorage = JSON.parse(
-      localStorage.getItem("transactions")
-    );
   }
 
   // Reconstruct the table
   populateTable();
-  calculateResults();
 };
 
 /**
@@ -407,4 +366,3 @@ confirmClearButton.addEventListener("click", function () {
 
 /** Draw HTML table on load  */
 populateTable();
-calculateResults();
